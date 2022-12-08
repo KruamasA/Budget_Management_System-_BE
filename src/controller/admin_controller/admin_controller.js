@@ -26,6 +26,8 @@ const create_admin = async (req, res) => {
                 password: hash_password
 
 
+
+                
                 
             })
             return res.send(createAdmin)
