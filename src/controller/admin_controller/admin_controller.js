@@ -24,6 +24,9 @@ const create_admin = async (req, res) => {
                 phone_number: phone_number,
                 username: username,
                 password: hash_password
+
+
+                
             })
             return res.send(createAdmin)
         }else{
