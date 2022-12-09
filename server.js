@@ -51,8 +51,8 @@ db.sequelize.sync();
 //     })
 // })
 
-app.listen(3000, () => {
-    console.log('Runing on port 3000')
+app.listen(3001, () => {
+    console.log('Runing on port 3001')
 })
 
 module.exports = app;
