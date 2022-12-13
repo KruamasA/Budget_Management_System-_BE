@@ -20,6 +20,8 @@ const create_main_admin = async (req, res) => {
 }
 
 const get_main_admin = async (req, res) => {
+    console.log("get main admin");
+    console.log(res.locals);
     try {
         const get_main_admin = await mainadmins.findAll({
             order: [["mainadmin_id", "ASC"]]

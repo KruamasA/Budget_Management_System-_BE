@@ -1,12 +1,14 @@
 const { fiscalyears } = require("../../model/index_model")
 
 const create_fiscalyear = async (req, res) => {
+    console.log(res.locals);
     try {
         const { name, budget } = req.body
 
         const create_fiscalyear = await fiscalyears.create({
             name: name,
-            budget: budget
+            budget: budget,
+            creator: res.locals.name
         })
         return res.send(create_fiscalyear)
     } catch (error) {

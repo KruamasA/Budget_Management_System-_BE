@@ -21,16 +21,18 @@ router.post("/login",login_controller.login)
 
 //main_admin
 router.post("/create/main_admin",main_admin_controller.create_main_admin)
-router.get("/get/main_admin",main_admin_controller.get_main_admin)
+router.get("/get/main_admin", auth,main_admin_controller.get_main_admin)
+
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYWluQWRtaW5faWQiOjEsImlhdCI6MTY3MDkxNjU4OCwiZXhwIjoxNjcwOTIzNzg4fQ.ItFbCQq5tVRQTz5MF50gHfU4qiB9G0v1RAbvtgj2-vg
 
 //admin
 router.post("/create/admin",admin_controller.create_admin) 
-router.get("/get/admin",admin_controller.get_admin) 
+router.get("/get/admin", auth, admin_controller.get_admin) 
 router.put("/update/admin",admin_controller.update_admin) 
 router.post("/delete/admin",admin_controller.delete_admin) 
 
 //fiscalyear
-router.post("/create/fiscalyear",fiscalyear_controller.create_fiscalyear) 
+router.post("/create/fiscalyear", auth, fiscalyear_controller.create_fiscalyear) 
 router.get("/get/fiscalyear",fiscalyear_controller.get_fiscalyear)
 router.put("/update/fiscalyear",fiscalyear_controller.update_fiscalyear) 
 router.post("/delete/fiscalyear",fiscalyear_controller.delete_fiscalyear) 

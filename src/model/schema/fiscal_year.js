@@ -18,6 +18,9 @@ module.exports = (sequelize, Sequelize) => {
         },
         remain: {
             type: Sequelize.INTEGER
+        },
+        creator: {
+            type: Sequelize.STRING
         }
     },
         {

@@ -18,6 +18,9 @@ module.exports = (sequelize, Sequelize) => {
         },
         fiscalyear_id: {
             type: Sequelize.INTEGER,
+        },
+        creator: {
+            type: Sequelize.STRING
         }
     },
         {
