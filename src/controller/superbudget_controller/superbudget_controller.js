@@ -8,7 +8,8 @@ const create_superbudget = async (req, res) => {
             name: name,
             budget: budget,
             fiscalyear_id: fiscalyear_id,
-            budgetgroup_id: budgetgroup_id
+            budgetgroup_id: budgetgroup_id,
+            creator: res.locals.name
         })
         return res.send(create_superbudget)
 

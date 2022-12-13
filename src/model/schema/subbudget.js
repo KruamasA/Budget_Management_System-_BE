@@ -16,6 +16,9 @@ module.exports = (sequelize, Sequelize) => {
         budgetgroup_id: {
             type: Sequelize.INTEGER
         },
+        superbudget_id: {
+            type: Sequelize.INTEGER
+        },
         fiscalyear_id: {
             type: Sequelize.INTEGER
         },

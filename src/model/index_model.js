@@ -17,9 +17,9 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.mainadmins = require("./schema/main_admin")(sequelize,Sequelize)
-db.subbudgets = require("./schema/sub_budget")(sequelize,Sequelize)
+db.subbudgets = require("./schema/subbudget")(sequelize,Sequelize)
 db.admins = require("./schema/admin")(sequelize,Sequelize)
-db.superbudgets = require("./schema/super_budget")(sequelize,Sequelize)
+db.superbudgets = require("./schema/superbudget")(sequelize,Sequelize)
 db.budgetgroups = require("./schema/budget_group")(sequelize,Sequelize)
 db.fiscalyears = require("./schema/fiscal_year")(sequelize,Sequelize)
 

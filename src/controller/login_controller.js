@@ -23,7 +23,7 @@ const login = async (req, res) => {
             if (check_user_mainadmin && (await bcrypt.compare(password, check_user_mainadmin.password))) {
                 // Create token
                 const token = jsonwebtoken.sign(
-                    { mainAdmin_id: check_user_mainadmin.mainAdmin_id },
+                    { mainAdmin_id: check_user_mainadmin.mainAdmin_id , name: check_user_mainadmin.name},
                     process.env.TOKEN_KEY,
                     {
                         expiresIn: "2h",

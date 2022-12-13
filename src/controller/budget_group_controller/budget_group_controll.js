@@ -7,7 +7,8 @@ const create_budgetgroup = async (req, res) => {
         const create_budgetgroup = await budgetgroups.create({
             name: name,
             budget: budget,
-            fiscalyear_id: fiscalyear_id
+            fiscalyear_id: fiscalyear_id,
+            creator: res.locals.name
         })
         return res.send(create_budgetgroup)
     } catch (error) {

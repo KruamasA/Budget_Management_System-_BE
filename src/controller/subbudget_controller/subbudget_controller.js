@@ -4,13 +4,15 @@ const { subbudgets } = require("../../model/index_model")
 
 const create_subbudget = async (req, res) => {
     try {
-        const { name, budget, fiscalyear_id, budgetgroup_id } = req.body
+        const { name, budget, fiscalyear_id, budgetgroup_id, superbudget_id } = req.body
 
         const createAdmin = await subbudgets.create({
             name: name,
             budget: budget,
             fiscalyear_id: fiscalyear_id,
-            budgetgroup_id: budgetgroup_id
+            budgetgroup_id: budgetgroup_id,
+            superbudget_id: superbudget_id,
+            creator: res.locals.name
         })
         return res.send(create_subbudget)
 
