@@ -10,10 +10,12 @@ const login = async (req, res) => {
 
         const check_user_mainadmin = await mainadmins.findOne({
             where: { username: username }
+            // where: { password: password }
         })
 
         const check_user_admin = await admins.findOne({
             where: { username: username }
+            // where: { password: password }
         })
 
         if (check_user_mainadmin) {
@@ -35,26 +37,39 @@ const login = async (req, res) => {
 
                 // mainadmins
                 return res.status(200).json(check_user_mainadmin);
+
+            } else {
+                return res.status(404).send({ message: "password is incorrect" })
             }
 
-        } else if (check_user_admin && (await bcrypt.compare(password, check_user_admin.password))) {
-            // Create token
-            const token = jsonwebtoken.sign(
-                { admin_id: check_user_admin.admin_id, name : check_user_admin.fname +" "+ check_user_admin.lname },
-                process.env.TOKEN_KEY,
-                {
-                    expiresIn: "2h",
-                }
-            );
+        }
 
-            // save admins token
-            check_user_admin.token = token;
+        if (check_user_admin) {
 
-            console.log("ok admin")
+            if (check_user_admin && (await bcrypt.compare(password, check_user_admin.password))) {
+                // Create token
+                const token = jsonwebtoken.sign(
+                    { admin_id: check_user_admin.admin_id, name: check_user_admin.fname + " " + check_user_admin.lname },
+                    process.env.TOKEN_KEY,
+                    {
+                        expiresIn: "2h",
+                    }
+                );
 
-            // admins
-            return res.status(200).json(check_user_admin);
+                // save admins token
+                check_user_admin.token = token;
 
+                console.log("ok admin")
+
+                // admins
+                return res.status(200).json(check_user_admin);
+
+            } else {
+                return res.status(404).send({ message: "password is incorrect" })
+            }
+
+        } else {
+            return res.status(404).send("Error ka e kuy")
         }
 
     } catch (error) {

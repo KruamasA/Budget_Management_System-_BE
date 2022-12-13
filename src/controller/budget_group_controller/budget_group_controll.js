@@ -2,11 +2,12 @@ const { budgetgroups } = require("../../model/index_model")
 
 const create_budgetgroup = async (req, res) => {
     try {
-        const { name, budget } = req.body
+        const { name, budget, fiscalyear_id } = req.body
 
         const create_budgetgroup = await budgetgroups.create({
             name: name,
-            budget: budget
+            budget: budget,
+            fiscalyear_id: fiscalyear_id
         })
         return res.send(create_budgetgroup)
     } catch (error) {
