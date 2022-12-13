@@ -24,15 +24,10 @@ const create_admin = async (req, res) => {
                 phone_number: phone_number,
                 username: username,
                 password: hash_password
-
-
-
-                
-                
             })
             return res.send(createAdmin)
         }else{
-            return res.status(500).send(error.message)
+            return res.status(500).send("")
         }
 
     } catch (error) {

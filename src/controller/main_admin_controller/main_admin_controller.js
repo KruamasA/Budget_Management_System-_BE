@@ -8,12 +8,24 @@ const create_main_admin = async (req, res) => {
 
         const hash_password = await bcrypt.hash(password,10);
 
-        const create_main_admin = await mainadmins.create({
-            name: name,
-            username: username,
-            password: hash_password
+        const check_username_admin = await admins.findOne({
+            where : {username : username}
+        }) 
+        const check_username_mainadmin = await mainadmins.findOne({
+            where : {username : username}
         })
-        return res.send(create_main_admin)
+
+        if ((check_username_admin === null) && (check_username_mainadmin === null)) {
+            const create_main_admin = await mainadmins.create({
+                name: name,
+                username: username,
+                password: hash_password
+            })
+            return res.send(create_main_admin)
+        } else {
+            return res.status(500).send(error.message)
+        }
+
     } catch (error) {
         return res.status(500).send(error.message)
     }
