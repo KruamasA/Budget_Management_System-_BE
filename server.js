@@ -2,6 +2,9 @@ let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
 let mysql = require('mysql2');
+// ADD THIS
+let cors = require('cors');
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
