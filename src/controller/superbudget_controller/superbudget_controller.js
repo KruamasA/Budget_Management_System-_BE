@@ -47,10 +47,10 @@ const delete_superbudget = async (req, res) => {
 
 const get_superbudget = async (req, res) => {
     try {
-        const get_subbudget = await superbudgets.findAll({
-            order: [["subbudget_id", "ASC"]]
+        const get_superbudget = await superbudgets.findAll({
+            order: [["superbudget_id", "ASC"]]
         })
-        return res.send(get_subbudget)
+        return res.send(get_superbudget)
     } catch (error) {
         return res.status(500).send(error.message)
     }

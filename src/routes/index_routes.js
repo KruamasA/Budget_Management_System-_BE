@@ -23,7 +23,6 @@ router.post("/login",login_controller.login)
 router.post("/create/main_admin",main_admin_controller.create_main_admin)
 router.get("/get/main_admin", auth,main_admin_controller.get_main_admin)
 
-//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYWluQWRtaW5faWQiOjEsImlhdCI6MTY3MDkxNjU4OCwiZXhwIjoxNjcwOTIzNzg4fQ.ItFbCQq5tVRQTz5MF50gHfU4qiB9G0v1RAbvtgj2-vg
 
 //admin
 router.post("/create/admin",admin_controller.create_admin) 
