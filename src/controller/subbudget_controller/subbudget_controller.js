@@ -6,7 +6,7 @@ const create_subbudget = async (req, res) => {
     try {
         const { name, budget, fiscalyear_id, budgetgroup_id, superbudget_id } = req.body
 
-        const createAdmin = await subbudgets.create({
+        const create_subbudget = await subbudgets.create({
             name: name,
             budget: budget,
             fiscalyear_id: fiscalyear_id,
