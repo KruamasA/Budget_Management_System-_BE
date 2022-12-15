@@ -58,7 +58,7 @@ const get_fiscalyear = async (req, res) => {
 
 const update_fiscalyear = async (req, res) => {
     try {
-        const fiscalyear_id = req.params.admin_id
+        const fiscalyear_id = req.params.fiscalyear_id
         const { name, budget } = req.body
 
         const update_fiscalyear = await fiscalyears.update({

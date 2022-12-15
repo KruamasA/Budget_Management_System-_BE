@@ -62,7 +62,7 @@ const delete_subbudget = async (req, res) => {
 
 const update_subbudget = async (req, res) => {
     try {
-        const subbudget_id = req.params.admin_id
+        const subbudget_id = req.params.subbudget_id
         const { name, budget } = req.body
 
         const update_subbudget = await subbudgets.update({

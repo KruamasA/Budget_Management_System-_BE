@@ -56,7 +56,7 @@ const delete_budgetgroup = async (req, res) => {
 
 const update_budgetgroup = async (req, res) => {
     try {
-        const budgetgroup_id = req.params.admin_id
+        const budgetgroup_id = req.params.budgetgroup_id
         const { name, budget } = req.body
 
         const update_budgetgroup = await budgetgroups.update({

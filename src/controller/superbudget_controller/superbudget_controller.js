@@ -58,7 +58,7 @@ const get_superbudget = async (req, res) => {
 
 const update_superbudget = async (req, res) => {
     try {
-        const superbudget_id = req.params.admin_id
+        const superbudget_id = req.params.superbudget_id
         const { name, budget } = req.body
 
         const update_subbudget = await superbudgets.update({
