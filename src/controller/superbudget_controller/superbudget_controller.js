@@ -1,4 +1,4 @@
-const { superbudgets } = require("../../model/index_model")
+const { superbudgets, subbudgets } = require("../../model/index_model")
 
 const create_superbudget = async (req, res) => {
     try {
@@ -62,7 +62,12 @@ const get_superbudget_byId = async (req, res) => {
         const get_superbudget_byID = await superbudgets.findAll({
             where: {
                 budgetgroup_id: budgetgroup_id
-            }
+            },
+            include: [
+                {
+                    model: subbudgets
+                }
+            ]
         })
         return res.send(get_superbudget_byID)
 
