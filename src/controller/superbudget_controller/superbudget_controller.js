@@ -56,6 +56,22 @@ const get_superbudget = async (req, res) => {
     }
 }
 
+const get_superbudget_byId = async (req, res) => {
+    try {
+        const budgetgroup_id = req.params.budgetgroup_id
+        const get_superbudget_byID = await superbudgets.findAll({
+            where: {
+                budgetgroup_id: budgetgroup_id
+            }
+        })
+        return res.send(get_superbudget_byID)
+
+    } catch (error) {
+        return res.status(500).send("bbbbb")
+    }
+
+}
+
 const update_superbudget = async (req, res) => {
     try {
         const superbudget_id = req.params.superbudget_id
@@ -86,5 +102,6 @@ module.exports = {
     create_superbudget: create_superbudget,
     delete_superbudget: delete_superbudget,
     get_superbudget: get_superbudget,
-    update_superbudget: update_superbudget
+    update_superbudget: update_superbudget,
+    get_superbudget_byId: get_superbudget_byId
 }

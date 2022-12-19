@@ -27,6 +27,24 @@ const get_budgetgroup = async (req, res) => {
     }
 }
 
+const get_budgetgroup_byId = async (req, res) => {
+    try {
+        const fiscalyear_id = req.params.fiscalyear_id
+        const get_budgetgroup_byID = await budgetgroups.findAll({
+            where: {
+                fiscalyear_id: fiscalyear_id
+            }
+        })
+        return res.send(get_budgetgroup_byID)
+
+    } catch (error) {
+        return res.status(500).send("aaaa")
+    }
+
+}
+
+
+
 const delete_budgetgroup = async (req, res) => {
     try {
         const { budgetgroup_id } = req.body
@@ -48,7 +66,7 @@ const delete_budgetgroup = async (req, res) => {
         } else {
             return res.status(203).send({ message: "Not found ID" })
         }
-        
+
     } catch (error) {
         return res.status(500).send(error.message)
     }
@@ -82,5 +100,6 @@ module.exports = {
     create_budgetgroup: create_budgetgroup,
     get_budgetgroup: get_budgetgroup,
     update_budgetgroup: update_budgetgroup,
-    delete_budgetgroup: delete_budgetgroup
+    delete_budgetgroup: delete_budgetgroup,
+    get_budgetgroup_byId: get_budgetgroup_byId
 }

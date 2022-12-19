@@ -35,23 +35,27 @@ router.post("/create/fiscalyear",auth, fiscalyear_controller.create_fiscalyear)
 router.get("/get/fiscalyear",fiscalyear_controller.get_fiscalyear)
 router.put("/update/fiscalyear",fiscalyear_controller.update_fiscalyear) 
 router.post("/delete/fiscalyear",fiscalyear_controller.delete_fiscalyear) 
+// router.get("/get/fiscalyear/:fiscalyear_id",auth,fiscalyear_controller.get_fiscalyear_byID)
 
 //budgetgroup
 router.post("/create/budgetgroup",auth, budgetgroup_controller.create_budgetgroup) 
 router.get("/get/budgetgroup",budgetgroup_controller.get_budgetgroup) 
 router.put("/update/budgetgroup/:budgetgroup_id",budgetgroup_controller.update_budgetgroup) 
 router.post("/delete/budgetgroup",budgetgroup_controller.delete_budgetgroup) 
+router.get("/get/budgetgroup/:fiscalyear_id",auth , budgetgroup_controller.get_budgetgroup_byId)
 
 //superbudget
 router.post("/create/superbudget",auth, superbudget_controller.create_superbudget) 
 router.get("/get/superbudget",superbudget_controller.get_superbudget) 
 router.put("/update/superbudget/:superbudget_id",superbudget_controller.update_superbudget) 
 router.post("/delete/superbudget",superbudget_controller.delete_superbudget) 
+router.get("/get/superbudget/:budgetgroup_id",superbudget_controller.get_superbudget_byId)
 
 //subbudget
 router.post("/create/subbudget",auth, subbudget_controller.create_subbudget) 
 router.get("/get/subbudget",subbudget_controller.get_subbudget) 
 router.put("/update/subbudget/:subbudget_id",subbudget_controller.update_subbudget) 
-router.post("/delete/subbudget",subbudget_controller.delete_subbudget) 
+router.post("/delete/subbudget",subbudget_controller.delete_subbudget)
+router.get("/get/subbudget/:superbudget_id",auth,subbudget_controller.get_subbudget_byId) 
 
 module.exports = router;

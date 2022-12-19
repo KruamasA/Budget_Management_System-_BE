@@ -45,6 +45,7 @@ const delete_fiscalyear = async (req, res) => {
     }
 }
 
+
 const get_fiscalyear = async (req, res) => {
     try {
         const get_fiscalyear = await fiscalyears.findAll({
@@ -55,6 +56,7 @@ const get_fiscalyear = async (req, res) => {
         return res.status(500).send(error.message)
     }
 }
+
 
 const update_fiscalyear = async (req, res) => {
     try {

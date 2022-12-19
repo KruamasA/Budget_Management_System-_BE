@@ -1,4 +1,4 @@
-const { subbudgets } = require("../../model/index_model")
+const { subbudgets, superbudgets } = require("../../model/index_model")
 // const main_admin = require("../../model/schema/main_admin")
 // const { get } = require("../../routes/indexRoutes")
 
@@ -19,6 +19,22 @@ const create_subbudget = async (req, res) => {
     } catch (error) {
         return res.status(500).send(error.message)
     }
+}
+
+const get_subbudget_byId = async (req, res) => {
+    try {
+        const superbudget_id = req.params.superbudget_id
+        const get_subbudget_byId = await subbudgets.findAll({
+            where: {
+                superbudget_id: superbudget_id
+            }
+        })
+        return res.send(get_subbudget_byId)
+
+    } catch (error) {
+        return res.status(500).send("bbbbb")
+    }
+
 }
 
 const get_subbudget = async (req, res) => {
@@ -88,5 +104,6 @@ module.exports = {
     create_subbudget: create_subbudget,
     delete_subbudget: delete_subbudget,
     get_subbudget: get_subbudget,
-    update_subbudget: update_subbudget
+    update_subbudget: update_subbudget,
+    get_subbudget_byId: get_subbudget_byId
 }

@@ -32,43 +32,6 @@ const create_admin = async (req, res) => {
             return res.status(500).send("Error")
         }
 
-        // const check_mainadmin = await mainadmins.findOne({
-        //     where: { username: username }
-        // })
-
-        // // console.log("create admin by main admin" + check_mainadmin.name);
-        // console.log("aa");
-        // console.log(check_mainadmin.mainAdmin_id);
-
-        // if (check_mainadmin) {
-        //     if (check_mainadmin && (await bcrypt.compare(password, check_mainadmin.password))) {
-        //         console.log("ok i'm main admin");
-
-        //         const check_username_admin = await admins.findOne({
-        //             where: { username: username }
-        //         })
-        //         const check_username_mainadmin = await mainadmins.findOne({
-        //             where: { username: username }
-        //         })
-        //         console.log("check_username")
-
-        //         if ((check_username_admin === null) && (check_username_mainadmin === null)) {
-        //             console.log("user is null")
-        //             const createAdmin = await admins.create({
-        //                 fname: fname,
-        //                 lname: lname,
-        //                 phone_number: phone_number,
-        //                 username: username,
-        //                 password: hash_password
-        //             })
-        //             return res.send(createAdmin)
-        //         } else {
-        //             return res.status(500).send("Error")
-        //         }
-        //     }
-        // }
-
-
 
     } catch (error) {
         return res.status(500).send(error.message)
@@ -105,9 +68,6 @@ const delete_admin = async (req, res) => {
 
 const get_admin = async (req, res) => {
     try {
-        // if(){
-
-        // }
         const get_admin = await admins.findAll({
             order: [["admin_id", "ASC"]]
         })
