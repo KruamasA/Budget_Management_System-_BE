@@ -2,6 +2,9 @@ let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
 let mysql = require('mysql2');
+
+const path = require('path')
+
 // ADD THIS
 let cors = require('cors');
 app.use(cors());
@@ -9,6 +12,11 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("",require("./src/routes/index_routes"))
+
+const distPath = path.join(__dirname, '/build');
+app.use(express.static(distPath));
+
+
 
 // //homepage route
 // app.get('/', (req, res) => {
@@ -54,8 +62,14 @@ db.sequelize.sync();
 //     })
 // })
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(distPath, 'index.html'));
+  });
+
 app.listen(3001, () => {
     console.log('Runing on port 3001')
 })
+
+
 
 module.exports = app;
