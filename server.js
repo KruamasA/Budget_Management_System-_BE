@@ -11,7 +11,6 @@ app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/api",require("./src/routes/index_routes"))
 
 const distPath = path.join(__dirname, '/build');
 app.use(express.static(distPath));
@@ -61,6 +60,8 @@ db.sequelize.sync();
 //         return res.send({ error: false, data: results, message: message});
 //     })
 // })
+app.use("/api",require("./src/routes/index_routes"))
+
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(distPath, 'index.html'));
