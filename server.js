@@ -11,7 +11,7 @@ app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("",require("./src/routes/index_routes"))
+app.use("/api",require("./src/routes/index_routes"))
 
 const distPath = path.join(__dirname, '/build');
 app.use(express.static(distPath));
