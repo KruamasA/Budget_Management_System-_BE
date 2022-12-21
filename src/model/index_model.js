@@ -3,15 +3,23 @@ const Sequelize = require("sequelize");
 const {database_name,host_db,password_db,username_db} = require("../config/config");
 // const main_admin = require("./schema/main_admin");
 
-const sequelize = new Sequelize(database_name, username_db, password_db, {
+
+const sequelize = new Sequelize("nodejs_api", "root", "kruamas1183", {
     dialect: "mysql",
-    host: host_db,
+    host: "127.0.0.1",
     charset: "utf8",
     collate: "utf8_general_ci",
     operatorsAliaces: 0,
     timezone: "+07:00",
   });
-
+// const sequelize = new Sequelize(database_name, username_db, password_db, {
+//     dialect: "mysql",
+//     host: host_db,
+//     charset: "utf8",
+//     collate: "utf8_general_ci",
+//     operatorsAliaces: 0,
+//     timezone: "+07:00",
+//   });
 const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
