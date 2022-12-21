@@ -29,16 +29,16 @@ app.use(express.static(distPath));
 
 
 //connection to mysql
-let dbCon = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password : '',
-    database: 'nodejs_api'
-})
-dbCon.connect((err) => {
-    if (err) throw err;
-    console.log('connect success');
-});
+// let dbCon = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password : '',
+//     database: 'nodejs_api'
+// })
+// dbCon.connect((err) => {
+//     if (err) throw err;
+//     console.log('connect success');
+// });
 
 
 // ? DB User
