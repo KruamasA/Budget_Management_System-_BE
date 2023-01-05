@@ -8,12 +8,18 @@ const create_fiscalyear = async (req, res) => {
         const create_fiscalyear = await fiscalyears.create({
             name: name,
             budget: budget,
-            creator: res.locals.name
+            creator: res.locals.name,
+            total: budget,
+
+            if(){
+
+            }
         })
         return res.send(create_fiscalyear)
     } catch (error) {
         return res.status(500).send(error.message)
     }
+
 }
 
 const delete_fiscalyear = async (req, res) => {
@@ -80,6 +86,31 @@ const update_fiscalyear = async (req, res) => {
     } catch (error) {
         return res.status(500).send(error.message)
     }
+}
+
+const get_fiscal_year_byId = async (req, res) => {
+    try {
+        const fiscalyear_id = req.params.fiscalyear_id
+        const get_budgetgroup_byID = await budgetgroups.findAll({
+            where: {
+                fiscalyear_id: fiscalyear_id
+            },
+
+            include: [
+                {
+                    model: superbudgets
+                },
+                {
+                    model: subbudgets
+                }
+            ]
+        })
+        return res.send(get_budgetgroup_byID)
+
+    } catch (error) {
+        return res.status(500).send("aaaa")
+    }
+
 }
 
 module.exports = {

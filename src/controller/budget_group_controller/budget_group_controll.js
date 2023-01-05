@@ -1,6 +1,6 @@
 const { budgetgroups, superbudgets, subbudgets } = require("../../model/index_model")
 
-const create_budgetgroup = async (req, res) => {
+const create_budgetgroup_byId = async (req, res) => {
     try {
         const { name, budget, fiscalyear_id } = req.body
 
@@ -106,7 +106,7 @@ const update_budgetgroup = async (req, res) => {
 }
 
 module.exports = {
-    create_budgetgroup: create_budgetgroup,
+    create_budgetgroup_byId: create_budgetgroup_byId,
     get_budgetgroup: get_budgetgroup,
     update_budgetgroup: update_budgetgroup,
     delete_budgetgroup: delete_budgetgroup,

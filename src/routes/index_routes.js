@@ -38,7 +38,7 @@ router.post("/delete/fiscalyear",fiscalyear_controller.delete_fiscalyear)
 // router.get("/get/fiscalyear/:fiscalyear_id",auth,fiscalyear_controller.get_fiscalyear_byID)
 
 //budgetgroup
-router.post("/create/budgetgroup",auth, budgetgroup_controller.create_budgetgroup) 
+router.post("/create/budgetgroup",auth, budgetgroup_controller.create_budgetgroup_byId) 
 router.get("/get/budgetgroup",budgetgroup_controller.get_budgetgroup) 
 router.put("/update/budgetgroup/:budgetgroup_id",budgetgroup_controller.update_budgetgroup) 
 router.post("/delete/budgetgroup",budgetgroup_controller.delete_budgetgroup) 
