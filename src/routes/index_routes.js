@@ -33,12 +33,13 @@ router.post("/delete/admin",admin_controller.delete_admin)
 //fiscalyear
 router.post("/create/fiscalyear",auth, fiscalyear_controller.create_fiscalyear) 
 router.get("/get/fiscalyear",fiscalyear_controller.get_fiscalyear)
+router.get("/get/fiscalyear_byId/fiscalyear=:fiscalyear_id",fiscalyear_controller.get_fiscal_year_byId)
 router.put("/update/fiscalyear",fiscalyear_controller.update_fiscalyear) 
 router.post("/delete/fiscalyear",fiscalyear_controller.delete_fiscalyear) 
 // router.get("/get/fiscalyear/:fiscalyear_id",auth,fiscalyear_controller.get_fiscalyear_byID)
 
 //budgetgroup
-router.post("/create/budgetgroup",auth, budgetgroup_controller.create_budgetgroup_byId) 
+router.post("/create/budgetgroup/fiscalyear=:fiscalyear_id",auth, budgetgroup_controller.create_budgetgroup_byId) 
 router.get("/get/budgetgroup",budgetgroup_controller.get_budgetgroup) 
 router.put("/update/budgetgroup/:budgetgroup_id",budgetgroup_controller.update_budgetgroup) 
 router.post("/delete/budgetgroup",budgetgroup_controller.delete_budgetgroup) 

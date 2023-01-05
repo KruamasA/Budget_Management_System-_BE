@@ -1,4 +1,5 @@
-const { fiscalyears } = require("../../model/index_model")
+const { fiscalyears, budgetgroups } = require("../../model/index_model");
+const budget_group = require("../../model/schema/budget_group");
 
 const create_fiscalyear = async (req, res) => {
     console.log(res.locals);
@@ -91,24 +92,27 @@ const update_fiscalyear = async (req, res) => {
 const get_fiscal_year_byId = async (req, res) => {
     try {
         const fiscalyear_id = req.params.fiscalyear_id
-        const get_budgetgroup_byID = await budgetgroups.findAll({
+        const get_fiscal_year_byID = await fiscalyears.findAll({
             where: {
                 fiscalyear_id: fiscalyear_id
             },
-
             include: [
+                {
+                    model: budgetgroups
+                },
                 {
                     model: superbudgets
                 },
                 {
                     model: subbudgets
                 }
+               
             ]
         })
-        return res.send(get_budgetgroup_byID)
+        return res.send(get_fiscal_year_byID)
 
     } catch (error) {
-        return res.status(500).send("aaaa")
+        return res.status(500).send("/////")
     }
 
 }
@@ -117,6 +121,7 @@ module.exports = {
     create_fiscalyear: create_fiscalyear,
     delete_fiscalyear: delete_fiscalyear,
     get_fiscalyear: get_fiscalyear,
-    update_fiscalyear: update_fiscalyear
+    update_fiscalyear: update_fiscalyear,
+    get_fiscal_year_byId: get_fiscal_year_byId
 }
 
