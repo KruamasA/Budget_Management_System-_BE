@@ -1,4 +1,4 @@
-const { mainadmins } = require("../../model/index_model")
+const { mainadmins,admins } = require("../../model/index_model")
 const  bcrypt = require("bcryptjs")
 const jsonwebtoken = require("jsonwebtoken")
 
@@ -15,19 +15,21 @@ const create_main_admin = async (req, res) => {
             where : {username : username}
         })
 
+
         if ((check_username_admin === null) && (check_username_mainadmin === null)) {
             const create_main_admin = await mainadmins.create({
                 name: name,
                 username: username,
+                // password: password
                 password: hash_password
             })
             return res.send(create_main_admin)
         } else {
-            return res.status(500).send(error.message)
+            return res.status(500).send("error error")
         }
 
     } catch (error) {
-        return res.status(500).send(error.message)
+        return res.status(500).send("error")
     }
 }
 
