@@ -20,7 +20,7 @@ const subbudget_controller = require("../controller/subbudget_controller/subbudg
 router.post("/login",login_controller.login)
 
 //main_admin
-router.post("/create/main_admin",auth,main_admin_controller.create_main_admin)
+router.post("/create/main_admin",main_admin_controller.create_main_admin)
 router.get("/get/main_admin", auth,main_admin_controller.get_main_admin)
 
 
