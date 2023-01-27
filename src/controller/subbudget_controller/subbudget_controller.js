@@ -4,11 +4,12 @@ const { subbudgets, superbudgets } = require("../../model/index_model")
 
 const create_subbudget = async (req, res) => {
     try {
-        const { name, budget, fiscalyear_id, budgetgroup_id, superbudget_id } = req.body
+        const { name, budget, note, fiscalyear_id, budgetgroup_id, superbudget_id } = req.body
 
         const create_subbudget = await subbudgets.create({
             name: name,
             budget: budget,
+            note: note,
             fiscalyear_id: fiscalyear_id,
             budgetgroup_id: budgetgroup_id,
             superbudget_id: superbudget_id,
@@ -79,11 +80,12 @@ const delete_subbudget = async (req, res) => {
 const update_subbudget = async (req, res) => {
     try {
         const subbudget_id = req.params.subbudget_id
-        const { name, budget } = req.body
+        const { name, budget, note } = req.body
 
         const update_subbudget = await subbudgets.update({
             name: name,
-            budget: budget
+            budget: budget,
+            note: note
         }, {
             where: {
                 subbudget_id: subbudget_id
