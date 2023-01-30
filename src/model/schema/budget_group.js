@@ -13,13 +13,12 @@ module.exports = (sequelize, Sequelize) => {
         budget: {
             type: Sequelize.INTEGER
         },
-        remain: {
-            type: Sequelize.INTEGER
-        },
         fiscalyear_id: {
             type: Sequelize.INTEGER
         },
         creator: {
+            type: Sequelize.STRING
+        }, note: {
             type: Sequelize.STRING
         }
 

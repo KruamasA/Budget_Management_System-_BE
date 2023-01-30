@@ -13,12 +13,6 @@ module.exports = (sequelize, Sequelize) => {
         budget: {
             type: Sequelize.INTEGER
         },
-        total: {
-            type: Sequelize.INTEGER
-        },
-        remain: {
-            type: Sequelize.INTEGER
-        },
         creator: {
             type: Sequelize.STRING
         }
