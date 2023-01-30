@@ -18,6 +18,8 @@ module.exports = (sequelize, Sequelize) => {
         },
         creator: {
             type: Sequelize.STRING
+        }, note: {
+            type: Sequelize.STRING
         }
 
     },
