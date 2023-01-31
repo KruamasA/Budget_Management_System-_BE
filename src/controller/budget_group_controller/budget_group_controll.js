@@ -2,13 +2,13 @@ const { budgetgroups, superbudgets, subbudgets } = require("../../model/index_mo
 
 const create_budgetgroup_byId = async (req, res) => {
     try {
-        const { name, budget, fiscalyear_id, note } = req.body
+        const { name, budget, note, fiscalyear_id } = req.body
 
         const create_budgetgroup = await budgetgroups.create({
             name: name,
             budget: budget,
-            fiscalyear_id: fiscalyear_id,
             note: note,
+            fiscalyear_id: fiscalyear_id,
             creator: res.locals.name
         })
         return res.send(create_budgetgroup)
