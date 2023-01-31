@@ -11,9 +11,6 @@ const create_fiscalyear = async (req, res) => {
             creator: res.locals.name,
             total: budget,
 
-            if() {
-
-            }
         })
         return res.send(create_fiscalyear)
     } catch (error) {

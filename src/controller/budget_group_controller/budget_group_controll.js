@@ -1,4 +1,4 @@
-const { budgetgroups, superbudgets } = require("../../model/index_model")
+const { budgetgroups, superbudgets, subbudgets } = require("../../model/index_model")
 
 const create_budgetgroup_byId = async (req, res) => {
     try {
@@ -39,13 +39,13 @@ const get_budgetgroup_byId = async (req, res) => {
             include: [
                 {
                     model: superbudgets
-                },
-                {
-                    model: subbudgets
                 }
             ]
         })
         return res.send(get_budgetgroup_byID)
+
+        
+
 
     } catch (error) {
         return res.status(500).send("aaaa")
@@ -85,12 +85,12 @@ const delete_budgetgroup = async (req, res) => {
 const update_budgetgroup = async (req, res) => {
     try {
         const budgetgroup_id = req.params.budgetgroup_id
-        const { name, budget , note} = req.body
+        const { name, budget, note } = req.body
 
         const update_budgetgroup = await budgetgroups.update({
             name: name,
             budget: budget,
-            note : note
+            note: note
         }, {
             where: {
                 budgetgroup_id: budgetgroup_id
