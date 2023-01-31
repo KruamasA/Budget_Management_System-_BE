@@ -1,4 +1,4 @@
-const { budgetgroups, superbudgets, subbudgets } = require("../../model/index_model")
+const { budgetgroups, superbudgets } = require("../../model/index_model")
 
 const create_budgetgroup_byId = async (req, res) => {
     try {

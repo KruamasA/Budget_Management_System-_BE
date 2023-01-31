@@ -1,4 +1,4 @@
-const { subbudgets, superbudgets } = require("../../model/index_model")
+const { subbudgets } = require("../../model/index_model")
 // const main_admin = require("../../model/schema/main_admin")
 // const { get } = require("../../routes/indexRoutes")
 
