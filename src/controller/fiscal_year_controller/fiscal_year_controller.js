@@ -11,7 +11,7 @@ const create_fiscalyear = async (req, res) => {
             creator: res.locals.name,
             total: budget,
 
-            if(){
+            if() {
 
             }
         })
@@ -117,6 +117,7 @@ module.exports = {
     create_fiscalyear: create_fiscalyear,
     delete_fiscalyear: delete_fiscalyear,
     get_fiscalyear: get_fiscalyear,
-    update_fiscalyear: update_fiscalyear
+    update_fiscalyear: update_fiscalyear,
+    get_fiscal_year_byId: get_fiscal_year_byId
 }
 

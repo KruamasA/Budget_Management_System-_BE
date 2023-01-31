@@ -2,12 +2,13 @@ const { budgetgroups, superbudgets, subbudgets } = require("../../model/index_mo
 
 const create_budgetgroup_byId = async (req, res) => {
     try {
-        const { name, budget, fiscalyear_id } = req.body
+        const { name, budget, fiscalyear_id, note } = req.body
 
         const create_budgetgroup = await budgetgroups.create({
             name: name,
             budget: budget,
             fiscalyear_id: fiscalyear_id,
+            note: note,
             creator: res.locals.name
         })
         return res.send(create_budgetgroup)
@@ -84,11 +85,12 @@ const delete_budgetgroup = async (req, res) => {
 const update_budgetgroup = async (req, res) => {
     try {
         const budgetgroup_id = req.params.budgetgroup_id
-        const { name, budget } = req.body
+        const { name, budget , note} = req.body
 
         const update_budgetgroup = await budgetgroups.update({
             name: name,
-            budget: budget
+            budget: budget,
+            note : note
         }, {
             where: {
                 budgetgroup_id: budgetgroup_id

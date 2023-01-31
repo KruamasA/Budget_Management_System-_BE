@@ -18,7 +18,8 @@ module.exports = (sequelize, Sequelize) => {
         },
         creator: {
             type: Sequelize.STRING
-        }, note: {
+        }, 
+        note: {
             type: Sequelize.STRING
         }
 
