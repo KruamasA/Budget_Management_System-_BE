@@ -30,16 +30,16 @@ const get_subbudget_byId = async (req, res) => {
             where: {
                 superbudget_id: superbudget_id
             },
-            include: [
-                {
-                    // model: budgetgroups
-                    model: superbudgets
+            // include: [
+            //     {
+            //         // model: budgetgroups
+            //         model: superbudgets
 
-                },
+            //     },
                 // {
                 //     model: superbudgets
                 // },
-            ]
+            // ]
 
         })
         return res.send(get_subbudget_byId)
