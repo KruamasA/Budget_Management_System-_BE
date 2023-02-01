@@ -1,4 +1,4 @@
-const { fiscalyears } = require("../../model/index_model")
+const { fiscalyears, superbudgets } = require("../../model/index_model")
 
 const create_fiscalyear = async (req, res) => {
     console.log(res.locals);
@@ -97,9 +97,9 @@ const get_fiscal_year_byId = async (req, res) => {
                 {
                     model: superbudgets
                 },
-                {
-                    model: subbudgets
-                }
+                // {
+                //     model: subbudgets
+                // }
             ]
         })
         return res.send(get_budgetgroup_byID)

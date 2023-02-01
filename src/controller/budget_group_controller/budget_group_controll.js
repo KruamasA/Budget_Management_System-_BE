@@ -39,17 +39,21 @@ const get_budgetgroup_byId = async (req, res) => {
             include: [
                 {
                     model: superbudgets
-                }
+                },
+                // {
+                //     model: subbudgets
+                // }
             ]
-        })
-        return res.send(get_budgetgroup_byID)
 
-        
+        })
+
+        return res.send(get_budgetgroup_byID)
 
 
     } catch (error) {
-        return res.status(500).send("aaaa")
+        return res.status(500).send("error in get_budgetgroup_Id (file budgetgroup controller)")
     }
+
 
 }
 

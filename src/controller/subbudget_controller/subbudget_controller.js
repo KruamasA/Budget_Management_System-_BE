@@ -1,4 +1,4 @@
-const { subbudgets } = require("../../model/index_model")
+const { subbudgets, budgetgroups, superbudgets } = require("../../model/index_model")
 // const main_admin = require("../../model/schema/main_admin")
 // const { get } = require("../../routes/indexRoutes")
 
@@ -24,11 +24,21 @@ const create_subbudget = async (req, res) => {
 
 const get_subbudget_byId = async (req, res) => {
     try {
+        // const fiscalyear_id = req.params.fiscalyear_id
         const superbudget_id = req.params.superbudget_id
         const get_subbudget_byId = await subbudgets.findAll({
             where: {
                 superbudget_id: superbudget_id
-            }
+            },
+            include: [
+                {
+                    model: budgetgroups
+                },
+                // {
+                //     model: superbudgets
+                // },
+            ]
+
         })
         return res.send(get_subbudget_byId)
 
