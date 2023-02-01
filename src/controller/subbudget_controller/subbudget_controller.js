@@ -32,7 +32,9 @@ const get_subbudget_byId = async (req, res) => {
             },
             include: [
                 {
-                    model: budgetgroups
+                    // model: budgetgroups
+                    model: superbudgets
+
                 },
                 // {
                 //     model: superbudgets
