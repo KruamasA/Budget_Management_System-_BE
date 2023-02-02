@@ -1,4 +1,4 @@
-const { fiscalyears, superbudgets } = require("../../model/index_model")
+const { fiscalyears, superbudgets, budgetgroups } = require("../../model/index_model")
 
 const create_fiscalyear = async (req, res) => {
     console.log(res.locals);
@@ -52,7 +52,14 @@ const delete_fiscalyear = async (req, res) => {
 const get_fiscalyear = async (req, res) => {
     try {
         const get_fiscalyear = await fiscalyears.findAll({
-            order: [["fiscalyear_id", "ASC"]]
+            order: [["fiscalyear_id", "ASC"]],
+            include: [
+                {
+                    model : budgetgroups 
+            
+                }
+
+            ]
         })
         return res.send(get_fiscalyear)
     } catch (error) {
@@ -97,6 +104,7 @@ const get_fiscal_year_byId = async (req, res) => {
                 {
                     model: superbudgets
                 },
+           
                 // {
                 //     model: subbudgets
                 // }

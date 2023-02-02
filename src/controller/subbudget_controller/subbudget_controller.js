@@ -41,7 +41,7 @@ const get_subbudget_byId = async (req, res) => {
                 // },
             // ]
 
-        })
+        }) 
         return res.send(get_subbudget_byId)
 
     } catch (error) {
