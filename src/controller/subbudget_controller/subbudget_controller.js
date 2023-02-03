@@ -4,12 +4,15 @@ const { subbudgets, budgetgroups, superbudgets } = require("../../model/index_mo
 
 const create_subbudget = async (req, res) => {
     try {
-        const { name, budget, note, fiscalyear_id, budgetgroup_id, superbudget_id } = req.body
+        const { name, budget, note, due_date, save_date, use, fiscalyear_id, budgetgroup_id, superbudget_id, } = req.body
 
         const create_subbudget = await subbudgets.create({
             name: name,
             budget: budget,
             note: note,
+            due_date: due_date,
+            save_date: save_date,
+            use: use,
             fiscalyear_id: fiscalyear_id,
             budgetgroup_id: budgetgroup_id,
             superbudget_id: superbudget_id,
@@ -92,12 +95,15 @@ const delete_subbudget = async (req, res) => {
 const update_subbudget = async (req, res) => {
     try {
         const subbudget_id = req.params.subbudget_id
-        const { name, budget, note } = req.body
+        const { name, budget, note, due_date, use, save_date} = req.body
 
         const update_subbudget = await subbudgets.update({
             name: name,
             budget: budget,
-            note: note
+            note: note,
+            due_date: due_date,
+            use: use,
+            save_date: save_date
         }, {
             where: {
                 subbudget_id: subbudget_id

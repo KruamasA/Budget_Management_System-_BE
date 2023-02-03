@@ -2,12 +2,13 @@ const { superbudgets, subbudgets } = require("../../model/index_model")
 
 const create_superbudget = async (req, res) => {
     try {
-        const { name, budget, note, fiscalyear_id, budgetgroup_id } = req.body
+        const { name, budget, note, due_date, fiscalyear_id, budgetgroup_id } = req.body
 
         const create_superbudget = await superbudgets.create({
             name: name,
             budget: budget,
             note: note,
+            due_date : due_date,
             fiscalyear_id: fiscalyear_id,
             budgetgroup_id: budgetgroup_id,
             creator: res.locals.name
@@ -81,12 +82,13 @@ const get_superbudget_byId = async (req, res) => {
 const update_superbudget = async (req, res) => {
     try {
         const superbudget_id = req.params.superbudget_id
-        const { name, budget, note } = req.body
+        const { name, budget, note, due_date } = req.body
 
         const update_subbudget = await superbudgets.update({
             name: name,
             budget: budget,
-            note: note
+            note: note,
+            due_date: due_date
         }, {
             where: {
                 superbudget_id: superbudget_id
