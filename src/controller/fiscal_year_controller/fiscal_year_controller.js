@@ -8,8 +8,7 @@ const create_fiscalyear = async (req, res) => {
         const create_fiscalyear = await fiscalyears.create({
             name: name,
             budget: budget,
-            creator: res.locals.name,
-            total: budget,
+            creator: res.locals.name
 
         })
         return res.send(create_fiscalyear)
