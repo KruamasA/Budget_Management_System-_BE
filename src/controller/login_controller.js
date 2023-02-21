@@ -69,7 +69,7 @@ const login = async (req, res) => {
             }
 
         } else {
-            return res.status(404).send("Error ka e kuy")
+            return res.status(404).send("Error not found")
         }
 
     } catch (error) {
