@@ -28,7 +28,7 @@ app.use(express.static(distPath));
 // })
 
 
-//connection to mysql
+// connection to mysql
 // let dbCon = mysql.createConnection({
 //     host: 'localhost',
 //     user: 'root',

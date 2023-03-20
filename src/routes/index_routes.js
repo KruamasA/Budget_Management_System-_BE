@@ -26,7 +26,7 @@ router.get("/get/main_admin",main_admin_controller.get_main_admin)
 
 //admin
 router.post("/create/admin",auth,admin_controller.create_admin) 
-router.get("/get/admin", admin_controller.get_admin) 
+router.get("/get/admin",auth, admin_controller.get_admin) 
 router.put("/update/admin/:admin_id",auth,admin_controller.update_admin) 
 router.post("/delete/admin",auth,admin_controller.delete_admin) 
 

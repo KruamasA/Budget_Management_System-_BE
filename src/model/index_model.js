@@ -23,9 +23,10 @@ db.admins = require("./schema/admin")(sequelize,Sequelize)
 db.superbudgets = require("./schema/superbudget")(sequelize,Sequelize)
 db.budgetgroups = require("./schema/budget_group")(sequelize,Sequelize)
 db.fiscalyears = require("./schema/fiscal_year")(sequelize,Sequelize)
+db.sub_subbudgets = require("./schema/sub_subbudget")(sequelize,Sequelize)
 
 
-const {mainadmins,subbudgets,admins,superbudgets,budgetgroups,fiscalyears} = db
+const {mainadmins,subbudgets,admins,superbudgets,budgetgroups,fiscalyears,sub_subbudgets} = db
 
 //admin 
 mainadmins.hasMany(admins, {foreignKey: 'mainAdmin_id'});
@@ -51,5 +52,18 @@ subbudgets.belongsTo(budgetgroups, {foreignKey: 'budgetgroup_id'});
 
 superbudgets.hasMany(subbudgets, {foreignKey: 'superbudget_id'});
 subbudgets.belongsTo(superbudgets, {foreignKey: 'superbudget_id'});
+
+//sub_subbudget
+fiscalyears.hasMany(sub_subbudgets, {foreignKey: 'fiscalyear_id'});
+sub_subbudgets.belongsTo(fiscalyears, {foreignKey: 'fiscalyear_id'});
+
+budgetgroups.hasMany(sub_subbudgets, {foreignKey: 'budgetgroup_id'});
+sub_subbudgets.belongsTo(budgetgroups, {foreignKey: 'budgetgroup_id'});
+
+superbudgets.hasMany(sub_subbudgets, {foreignKey: 'superbudget_id'});
+sub_subbudgets.belongsTo(superbudgets, {foreignKey: 'superbudget_id'});
+
+subbudgets.hasMany(sub_subbudgets, {foreignKey: 'subbudget_id'});
+sub_subbudgets.belongsTo(superbudgets, {foreignKey: 'subbudget_id'});
 
 module.exports = db;
