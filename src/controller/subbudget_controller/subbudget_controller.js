@@ -1,4 +1,4 @@
-const { subbudgets, budgetgroups, superbudgets } = require("../../model/index_model")
+const { subbudgets,sub_subbudgets, budgetgroups, superbudgets } = require("../../model/index_model")
 // const main_admin = require("../../model/schema/main_admin")
 // const { get } = require("../../routes/indexRoutes")
 
@@ -33,16 +33,11 @@ const get_subbudget_byId = async (req, res) => {
             where: {
                 superbudget_id: superbudget_id
             },
-            // include: [
-            //     {
-            //         // model: budgetgroups
-            //         model: superbudgets
-
-            //     },
-                // {
-                //     model: superbudgets
-                // },
-            // ]
+            include: [
+                {
+                    model: sub_subbudgets
+                }
+            ]
 
         }) 
         return res.send(get_subbudget_byId)

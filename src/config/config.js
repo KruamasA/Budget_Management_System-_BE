@@ -9,4 +9,4 @@ module.exports = {
   password_db,
   host_db,
   database_name,
-};     
+};      
