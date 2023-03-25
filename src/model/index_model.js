@@ -64,6 +64,6 @@ superbudgets.hasMany(sub_subbudgets, {foreignKey: 'superbudget_id'});
 sub_subbudgets.belongsTo(superbudgets, {foreignKey: 'superbudget_id'});
 
 subbudgets.hasMany(sub_subbudgets, {foreignKey: 'subbudget_id'});
-sub_subbudgets.belongsTo(superbudgets, {foreignKey: 'subbudget_id'});
+sub_subbudgets.belongsTo(subbudgets, {foreignKey: 'subbudget_id'});
 
 module.exports = db;
