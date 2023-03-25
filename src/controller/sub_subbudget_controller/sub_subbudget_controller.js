@@ -1,9 +1,10 @@
 const { sub_subbudgets, subbudgets, budgetgroups, superbudgets } = require("../../model/index_model")
 
-
 const create_sub_subbudget = async (req, res) => {
     try {
         const { name, budget, note, due_date, save_date, use, fiscalyear_id, budgetgroup_id, superbudget_id, subbudget_id } = req.body
+
+        console.log("name",name);
 
         const create_sub_subbudget = await sub_subbudgets.create({
             name: name,
@@ -24,6 +25,7 @@ const create_sub_subbudget = async (req, res) => {
         return res.status(500).send(error.message)
     }
 }
+
 
 const get_sub_subbudget_byId = async (req, res) => {
     try {
