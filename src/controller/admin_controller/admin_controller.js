@@ -15,7 +15,7 @@ const create_admin = async (req, res) => {
         })
         const check_username_mainadmin = await mainadmins.findOne({
             where: { username: username }
-        })
+        }) 
         console.log("check_username")
 
         if ((check_username_admin === null) && (check_username_mainadmin === null)) {
